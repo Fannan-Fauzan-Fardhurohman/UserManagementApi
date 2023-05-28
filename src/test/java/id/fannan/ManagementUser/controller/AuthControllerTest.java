@@ -153,7 +153,7 @@ class AuthControllerTest {
             WebResponse<String> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<WebResponse<String>>() {
             });
             assertNull(response.getErrors());
-            assertEquals("OK", response);
+            assertEquals("OK", response.getData());
 
             User userDb = userRepository.findById("test").orElse(null);
             assertNotNull(userDb);
