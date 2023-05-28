@@ -8,6 +8,7 @@ import id.fannan.ManagementUser.security.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
@@ -44,5 +45,13 @@ public class AuthService {
 
     private Long next30Days() {
         return System.currentTimeMillis() + (1000 * 16 * 24 * 30);
+    }
+
+    @Transactional
+    public void logout(User user){
+        user.setToken(null);
+        user.setTokenExpiredAt(null);
+
+        userRepository.save(user);
     }
 }
