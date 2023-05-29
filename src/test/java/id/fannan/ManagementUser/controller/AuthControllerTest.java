@@ -161,6 +161,4 @@ class AuthControllerTest {
             assertNull(userDb.getToken());
         });
     }
-
-
 }
