@@ -1,5 +1,6 @@
 package id.fannan.ManagementUser.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,10 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WebResponse<T> {
-    private T data;
-
-    private String errors;
-
-    private PagingResponse paging;
+public class PagingResponse {
+    private Integer currentPage;
+    private Integer totalPage;
+    private Integer size;
 }
